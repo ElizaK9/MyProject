@@ -13,15 +13,23 @@
 <img width="567" height="271" alt="image" src="https://github.com/user-attachments/assets/1861dca8-887f-4367-9638-686d244c72b4" />
 
 Установка и запуск проекта
+
 Клонируйте репозиторий:
+
 git clone https://github.com/ElizaK9MyProject.git
+
 Создайте виртуальное окружение и активируйте его:
+
 python -m venv env
 source env/bin/activate  # Для Linux/Mac
 env\Scripts\activate     # Для Windows
+
 Примените миграции:
 python manage.py migrate
+
 Запустите сервер:
 python manage.py runserver
+
 Откройте браузер и перейдите по адресу:
 http://127.0.0.1:8000/
+
