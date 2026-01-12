@@ -1,0 +1,18 @@
+{% extends 'LearnCard/base.html' %}
+{% block content %}
+
+<div class="mb-3 ps-3">
+    <h1>Тренировка завершена</h1>
+    <p>Результат: <strong id="received-score"></strong> из <strong>{{ total }}</strong></p>
+    <p>Тема: {{ topic_name }}</p>
+</div>
+<div class="card-footer text-muted mt-auto">
+    <a href="{% url 'LearnCard:index' %}" class=" link-dark">На главную</a>
+</div>
+
+<script>
+    const receivedScore = localStorage.getItem('score');
+    console.log('Полученный результат:', receivedScore);
+    document.getElementById("received-score").innerHTML = receivedScore;
+</script>
+{% endblock %}

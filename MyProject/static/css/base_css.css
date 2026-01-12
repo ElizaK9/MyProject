@@ -1,0 +1,149 @@
+body{
+background:#fbf4db;
+}
+
+.gothic-a1-regular {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+header {
+ margin: 0;
+ padding:10px 0px 10px 0px;
+ background:#ffb4a7;
+ box-shadow: 0 0 5px 3px rgba(82,82,82, 0.5);
+ display: flex;
+ align-items: center;
+
+}
+
+.header-h1 {
+    position: relative;
+ }
+
+
+.header-h1 h1 {
+    margin-bottom: 0;
+    padding-left: 30px;
+    color: #f2ebe0;
+    -webkit-text-stroke: 1px #d7908b; /* Обводка для Chrome и Safari */
+    text-stroke: 1px #d7908b; /* Обводка для других браузеров */
+    font-family: "Marck Script", cursive;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 60px;
+ }
+
+header img {
+ width: 90px;
+ height: 90px;
+}
+
+
+.container{
+    margin: 20px auto;
+    padding: 10px 10px;
+    background:#e0cec0;
+    min-height: 80vh;
+}
+
+.nav-link {
+ cursor: pointer;
+ color: black;
+ font-weight: bold;
+ font-size: 18px;
+ text-shadow: 1px 1px 2px #ffb4a7;
+ transition: all 0.3s ease;
+}
+
+
+.nav-pills .nav-link.active{
+    background: #f2ebe0;
+    color: black;
+    border: 2px solid;
+    border-color: #ffb4a7;
+}
+
+.nav-link:hover{
+ background: #f2ebe0;
+ color: black;
+}
+
+.container-card{
+    margin: 20px 50px;
+    padding: 10px 10px;
+
+    min-height: 600px;
+    box-shadow: 0 0 5px 3px rgba(82,82,82, 0.5);
+    border-radius:15px;
+
+  position: relative;
+  background-color: #f2ebe0;
+  background-image: url('https://png.pngtree.com/png-clipart/20220919/original/pngtree-border-with-beautiful-watercolor-magnolia-flowers-png-image_8623482.png');
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+}
+
+.card-body{
+    background:#f9f9f5;
+}
+
+
+.card-header{
+    background:#ffb4a7;
+}
+
+.btn{
+    background:#ffb4a7;
+    border:none;
+    color:black;
+    box-shadow: 0 0 2px 1px rgba(82,82,82, 0.5);
+}
+
+.btn:hover{
+    background:#ffb4a7;
+}
+
+.card-footer{
+    margin-top:20px;
+    }
+
+.card-footer:hover{
+    background:#ffb4a7;
+    color: #f2ebe0;
+    font-weight:bold;
+}
+
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="radio"]:checked {
+  border-color: #ccc;
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #ffb4a7; /* цвет кружка при выборе */
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+}
+

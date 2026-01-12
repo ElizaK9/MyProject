@@ -1,0 +1,41 @@
+{% extends 'LearnCard/base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="mb-3 ps-3">Выберите тематику и количество слов:</h1>
+    <div class="card text-center w-50 col-6 mx-auto">
+        <div class="card-body">
+    {% if error %}
+        <p style = "color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="post" action = "{% url 'LearnCard:start_session' %}">
+        {% csrf_token %}
+        <label>
+            Тема:
+            <select name="topic" required>
+                <option value = "">Выбрать тему</option>
+                {% for topic in topics %}
+                    <option value="{{ topic }}">{{ topic }}</option>
+                {% endfor %}
+            </select>
+        </label><br><br>
+
+        <label>Режим:
+            <select name="training_mode" required>
+                <option value = "">Выбрать режим</option>
+                    <option value="with_img">С картинками</option>
+                    <option value="without_img">Без картинок</option>
+            </select>
+        </label><br><br>
+
+        <label>Кол-во слов:
+            <input type="number" name="count" min="1" max="15" value="5" required>
+        </label><br><br>
+
+        <button type="submit" class="btn btn-primary">Начать тренировку</button>
+    </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

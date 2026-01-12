@@ -1,0 +1,74 @@
+{% extends 'LearnCard/base.html' %}
+
+{% block content %}
+  <h1 class="mb-3 ps-3">Тема: {{ topic_name }}</h1>
+  <p class="mb-3 ps-3">Прогресс: {{ progress }} из {{ total }}</p>
+
+<div class="card text-center col-6 mx-auto" data-correct-answer="{{ current_answer }}">
+  {% if mode == "with_img" and word_img %}
+    <img src="{{ word_img }}" alt="{{ word }}" class="img-thumbnail img-fluid rounded mx-auto d-block h-50 mt-2" style="height: 50%; width:50%">
+  {% else %}
+  <h2 class="card-header">{{ word }}</h2>
+  {% endif %}
+  <div class="card-body">
+  <h5 class="card-title">Выберите перевод:</h5>
+  <form method="post">
+    {% csrf_token %}
+    {% for option in options %}
+      <label>
+        <input type="radio" name="answer" value="{{ option }}" required>
+        {{ option }}
+      </label><br>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary mt-2" id="button-answer">Ответить</button>
+  </form>
+
+ </div>
+</div>
+<div class="card-footer text-muted mt-auto">
+   <a href="/" class=" link-dark">На главную</a>
+</div>
+
+<script>
+  let correct = "{{ current_answer|escapejs }}";
+  let total_quest = "{{ total|escapejs }}";
+  let cur_progress = "{{ progress|escapejs }}";
+  let score_result = localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0;
+
+
+  function getSelectedRadioValue(radioName) {
+  const radioButtons = document.getElementsByName(radioName);
+  for (let i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+      return radioButtons[i].value;
+    }
+  }
+  return null;
+}
+
+  const button = document.getElementById('button-answer');
+  button.addEventListener('click', function() {
+  const selectedAnswer = getSelectedRadioValue('answer');
+    if (selectedAnswer !== null) {
+      if (cur_progress == "1") {
+        localStorage.removeItem('score');
+         score_result = 0;}
+      if (cur_progress == total_quest) {
+        localStorage.setItem('score', score_result);
+         }
+      if (selectedAnswer === correct) {
+         score_result += 1;
+         localStorage.setItem('score', score_result);
+         console.log(cur_progress);
+         console.log('Ответ верен!');
+         console.log(score_result);
+      } else {
+         console.log(cur_progress);
+         console.log('Ответ неверен!');
+         console.log(score_result);
+        }
+     }
+  });
+</script>
+{% endblock %}
+
