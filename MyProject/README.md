@@ -20,7 +20,7 @@ git clone https://github.com/ElizaK9MyProject.git
 
 Создайте виртуальное окружение и активируйте его:
 
-python -m venv env
+python -m venv env \
 source env/bin/activate  # Для Linux/Mac \
 env\Scripts\activate     # Для Windows
 
@@ -32,5 +32,6 @@ python manage.py runserver
 
 Откройте браузер и перейдите по адресу:
 http://127.0.0.1:8000/
+
 
 
