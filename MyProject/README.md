@@ -27,11 +27,12 @@ env\Scripts\activate     # Для Windows
 Примените миграции: \
 python manage.py migrate
 
-Запустите сервер:
+Запустите сервер: \
 python manage.py runserver
 
-Откройте браузер и перейдите по адресу:
+Откройте браузер и перейдите по адресу: \
 http://127.0.0.1:8000/
+
 
 
 
